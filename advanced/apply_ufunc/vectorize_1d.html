@@ -21,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -38,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -82,7 +82,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
 </label>
 <!-- Headers at the top -->
-<div class="announcement header-item noprint">ℹ️ SciPy Tutorial Attendees. Click the links for the <a href="https://tutorial.xarray.dev/workshops/scipy2022/README.html">schedule</a> and <a href="https://mybinder.org/v2/gh/xarray-contrib/xarray-tutorial/HEAD?labpath=workshops/scipy2022/index.ipynb">cloud-hosted Jupyter Lab environment</a>.</div>
+<div class="announcement header-item noprint"></div>
 <div class="header header-item noprint"></div>
 
     
@@ -276,6 +276,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../../intermediate/cmip6-cloud.html">
+   Accessing remote data stored on the cloud
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../data_cleaning/ice_velocity.html">
    Re-organize InSAR ice velocity data
   </a>
@@ -430,6 +435,23 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Domain Specific
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://anopheles-genomic-surveillance.github.io/workshop-5/module-1-xarray.html">
+   Genomics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://predictablynoisy.com/posts/2019/2019-10-22-xarray-neuro/">
+   Electrophysiology
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -845,6 +867,7 @@ with given discrete data points (`xp`, `fp`), evaluated at `x`.
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1074,6 +1097,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1095,14 +1123,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1112,13 +1142,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1156,7 +1189,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1222,7 +1256,7 @@ Attributes:
     level_desc:    Surface
     statistic:     Individual Obs
     parent_stat:   Other
-    actual_range:  [185.16 322.1 ]</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lat</span>: 25</li><li><span class='xr-has-index'>lon</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-27e89613-7981-4c5d-ae3d-6fca91912ded' class='xr-array-in' type='checkbox' checked><label for='section-27e89613-7981-4c5d-ae3d-6fca91912ded' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.8 297.1 295.9 296.2 296.8 ... 245.3 244.2 241.9 241.8 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29   , 296.79   , 297.1    ],
+    actual_range:  [185.16 322.1 ]</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lat</span>: 25</li><li><span class='xr-has-index'>lon</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c456606d-b4bb-4e08-8807-3560cd9a71e8' class='xr-array-in' type='checkbox' checked><label for='section-c456606d-b4bb-4e08-8807-3560cd9a71e8' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.8 297.1 295.9 296.2 296.8 ... 245.3 244.2 241.9 241.8 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29   , 296.79   , 297.1    ],
         [295.9    , 296.19998, 296.79   ],
         [296.6    , 296.19998, 296.4    ],
         [297.     , 296.69998, 296.1    ],
@@ -1262,11 +1296,16 @@ Attributes:
         [267.69998, 266.29   , 264.4    ],
         [256.6    , 254.7    , 252.09999],
         [246.29999, 245.29999, 244.2    ],
-        [241.89   , 241.79999, 241.79999]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-637eea82-e643-43ae-b64d-c15b58a02b35' class='xr-section-summary-in' type='checkbox'  checked><label for='section-637eea82-e643-43ae-b64d-c15b58a02b35' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>15.0 17.5 20.0 ... 70.0 72.5 75.0</div><input id='attrs-d32c0566-ae67-48a5-8d1e-d372610e1226' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d32c0566-ae67-48a5-8d1e-d372610e1226' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-abf03326-adae-4bac-981e-c331c724fd04' class='xr-var-data-in' type='checkbox'><label for='data-abf03326-adae-4bac-981e-c331c724fd04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([15. , 17.5, 20. , 22.5, 25. , 27.5, 30. , 32.5, 35. , 37.5, 40. , 42.5,
+        [241.89   , 241.79999, 241.79999]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-616d151b-a019-491e-84b1-d7061af193f8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-616d151b-a019-491e-84b1-d7061af193f8' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>15.0 17.5 20.0 ... 70.0 72.5 75.0</div><input id='attrs-26d3117d-208f-4432-959b-8ab845619319' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-26d3117d-208f-4432-959b-8ab845619319' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5e35ffd1-65df-4109-a510-82909234830b' class='xr-var-data-in' type='checkbox'><label for='data-5e35ffd1-65df-4109-a510-82909234830b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([15. , 17.5, 20. , 22.5, 25. , 27.5, 30. , 32.5, 35. , 37.5, 40. , 42.5,
        45. , 47.5, 50. , 52.5, 55. , 57.5, 60. , 62.5, 65. , 67.5, 70. , 72.5,
-       75. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-4bdc0c91-ecd7-4614-8269-f86e5d1e1873' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4bdc0c91-ecd7-4614-8269-f86e5d1e1873' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9fca573b-d8be-4222-8051-3d80ba360c54' class='xr-var-data-in' type='checkbox'><label for='data-9fca573b-d8be-4222-8051-3d80ba360c54' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-e1153aa7-82fa-4efd-8e7d-6028e6239e0c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e1153aa7-82fa-4efd-8e7d-6028e6239e0c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4e9a1760-d721-4b2e-abf2-fbe0d9334e1b' class='xr-var-data-in' type='checkbox'><label for='data-4e9a1760-d721-4b2e-abf2-fbe0d9334e1b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
+       75. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-5d15f4e8-0fd3-48ad-b722-2f3200ea7689' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5d15f4e8-0fd3-48ad-b722-2f3200ea7689' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e56be922-3bef-4853-b5bd-eb116dc94eb4' class='xr-var-data-in' type='checkbox'><label for='data-e56be922-3bef-4853-b5bd-eb116dc94eb4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-854e235f-51bb-4b39-b073-5f73deb5f5a3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-854e235f-51bb-4b39-b073-5f73deb5f5a3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ac95154-0779-45fe-b603-6b4df1e3101d' class='xr-var-data-in' type='checkbox'><label for='data-7ac95154-0779-45fe-b603-6b4df1e3101d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
        &#x27;2013-01-01T12:00:00.000000000&#x27;, &#x27;2013-01-01T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d11ab1ba-66ae-45c9-a629-c96117ee8c4a' class='xr-section-summary-in' type='checkbox'  ><label for='section-d11ab1ba-66ae-45c9-a629-c96117ee8c4a' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>actual_range :</span></dt><dd>[185.16 322.1 ]</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c620039a-b9fb-4cb8-a63a-948aa94c3b81' class='xr-section-summary-in' type='checkbox'  ><label for='section-c620039a-b9fb-4cb8-a63a-948aa94c3b81' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c06fb254-e1eb-4b54-8ac5-7c1fde2ce20e' class='xr-index-data-in' type='checkbox'/><label for='index-c06fb254-e1eb-4b54-8ac5-7c1fde2ce20e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([15.0, 17.5, 20.0, 22.5, 25.0, 27.5, 30.0, 32.5, 35.0, 37.5, 40.0,
+              42.5, 45.0, 47.5, 50.0, 52.5, 55.0, 57.5, 60.0, 62.5, 65.0, 67.5,
+              70.0, 72.5, 75.0],
+             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-128598e3-fe65-4c6a-9f6f-a8f512547ff5' class='xr-index-data-in' type='checkbox'/><label for='index-128598e3-fe65-4c6a-9f6f-a8f512547ff5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([200.0, 202.5, 205.0], dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-42872aec-1cf1-4844-8016-882d52607109' class='xr-index-data-in' type='checkbox'/><label for='index-42872aec-1cf1-4844-8016-882d52607109' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2013-01-01 00:00:00&#x27;, &#x27;2013-01-01 06:00:00&#x27;,
+               &#x27;2013-01-01 12:00:00&#x27;, &#x27;2013-01-01 18:00:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-14633c64-5075-4e36-85dd-91fd3a4c233a' class='xr-section-summary-in' type='checkbox'  ><label for='section-14633c64-5075-4e36-85dd-91fd3a4c233a' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>actual_range :</span></dt><dd>[185.16 322.1 ]</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>The function we will apply is <code class="docutils literal notranslate"><span class="pre">np.interp</span></code> which expects 1D numpy arrays. This functionality is already implemented in xarray so we use that capability to make sure we are not making mistakes.</p>
 <div class="cell docutils container">
@@ -1308,6 +1347,7 @@ Attributes:
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1537,6 +1577,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1558,14 +1603,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1575,13 +1622,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1619,7 +1669,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1675,7 +1726,7 @@ Attributes:
     level_desc:    Surface
     statistic:     Individual Obs
     parent_stat:   Other
-    actual_range:  [185.16 322.1 ]</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lat</span>: 100</li><li><span class='xr-has-index'>lon</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-19f0d9dd-859b-4f28-a0d9-a74b4b4f57ac' class='xr-array-in' type='checkbox' checked><label for='section-19f0d9dd-859b-4f28-a0d9-a74b4b4f57ac' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.8 297.1 296.2 296.6 297.0 ... 242.6 242.4 241.9 241.8 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29000854, 296.79000854, 297.1000061 ],
+    actual_range:  [185.16 322.1 ]</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lat</span>: 100</li><li><span class='xr-has-index'>lon</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-906f3174-4558-48de-8a11-aa07aeac424b' class='xr-array-in' type='checkbox' checked><label for='section-906f3174-4558-48de-8a11-aa07aeac424b' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.8 297.1 296.2 296.6 297.0 ... 242.6 242.4 241.9 241.8 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29000854, 296.79000854, 297.1000061 ],
         [296.19545954, 296.64697173, 297.02485518],
         [296.10091053, 296.50393491, 296.94970426],
         ...,
@@ -1705,9 +1756,9 @@ Attributes:
         ...,
         [244.02817552, 243.49695752, 242.96362858],
         [242.9590874 , 242.64847269, 242.38180817],
-        [241.88999927, 241.79998785, 241.79998776]]])</pre></div></div></li><li class='xr-section-item'><input id='section-383313a1-90e2-49ba-90a9-ed374e8cf46e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-383313a1-90e2-49ba-90a9-ed374e8cf46e' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-f80536dd-6eee-497d-ba90-c4f1987b3eee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f80536dd-6eee-497d-ba90-c4f1987b3eee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5cee4bdf-326d-43ca-b014-1f764a38b1af' class='xr-var-data-in' type='checkbox'><label for='data-5cee4bdf-326d-43ca-b014-1f764a38b1af' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-2e867126-43c3-4e12-b797-aea0d1bbcbde' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e867126-43c3-4e12-b797-aea0d1bbcbde' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-23adfb6e-fb74-4188-b06f-fecd67820848' class='xr-var-data-in' type='checkbox'><label for='data-23adfb6e-fb74-4188-b06f-fecd67820848' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
+        [241.88999927, 241.79998785, 241.79998776]]])</pre></div></div></li><li class='xr-section-item'><input id='section-ce088f31-ba5a-4c49-a7dd-8b03acf67daf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ce088f31-ba5a-4c49-a7dd-8b03acf67daf' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-f4f299a2-dc5d-4a91-85f5-9c5e727818eb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f4f299a2-dc5d-4a91-85f5-9c5e727818eb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5de52dbf-c7dc-49f6-86b6-657347bd3b84' class='xr-var-data-in' type='checkbox'><label for='data-5de52dbf-c7dc-49f6-86b6-657347bd3b84' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-954c9016-00d6-4bf5-b171-31e0da12b168' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-954c9016-00d6-4bf5-b171-31e0da12b168' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fe19b540-8761-4c63-a683-ce873b5dccce' class='xr-var-data-in' type='checkbox'><label for='data-fe19b540-8761-4c63-a683-ce873b5dccce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
        &#x27;2013-01-01T12:00:00.000000000&#x27;, &#x27;2013-01-01T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>15.0 15.61 16.21 ... 74.39 75.0</div><input id='attrs-ec9482b2-8ee4-4a2d-86d0-d4d1c3533f66' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ec9482b2-8ee4-4a2d-86d0-d4d1c3533f66' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9c29b186-25d0-4b1e-867c-a3780745bf67' class='xr-var-data-in' type='checkbox'><label for='data-9c29b186-25d0-4b1e-867c-a3780745bf67' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([15.      , 15.606061, 16.212121, 16.818182, 17.424242, 18.030303,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>15.0 15.61 16.21 ... 74.39 75.0</div><input id='attrs-887e636e-bb21-4fcf-a86b-01293d4e22c5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-887e636e-bb21-4fcf-a86b-01293d4e22c5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a405bf9e-2568-44e3-a197-65855a8ffb1c' class='xr-var-data-in' type='checkbox'><label for='data-a405bf9e-2568-44e3-a197-65855a8ffb1c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([15.      , 15.606061, 16.212121, 16.818182, 17.424242, 18.030303,
        18.636364, 19.242424, 19.848485, 20.454545, 21.060606, 21.666667,
        22.272727, 22.878788, 23.484848, 24.090909, 24.69697 , 25.30303 ,
        25.909091, 26.515152, 27.121212, 27.727273, 28.333333, 28.939394,
@@ -1723,7 +1774,43 @@ Attributes:
        62.272727, 62.878788, 63.484848, 64.090909, 64.69697 , 65.30303 ,
        65.909091, 66.515152, 67.121212, 67.727273, 68.333333, 68.939394,
        69.545455, 70.151515, 70.757576, 71.363636, 71.969697, 72.575758,
-       73.181818, 73.787879, 74.393939, 75.      ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4297a259-e249-4a60-917a-42e823e79773' class='xr-section-summary-in' type='checkbox'  ><label for='section-4297a259-e249-4a60-917a-42e823e79773' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>actual_range :</span></dt><dd>[185.16 322.1 ]</dd></dl></div></li></ul></div></div></div></div>
+       73.181818, 73.787879, 74.393939, 75.      ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-13f3bed4-b1e0-4e5e-b5f4-50d49797631d' class='xr-section-summary-in' type='checkbox'  ><label for='section-13f3bed4-b1e0-4e5e-b5f4-50d49797631d' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ef3e1b69-3df0-47f5-bc85-227d045aac1a' class='xr-index-data-in' type='checkbox'/><label for='index-ef3e1b69-3df0-47f5-bc85-227d045aac1a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([200.0, 202.5, 205.0], dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d18369b9-55c5-48b2-a52f-3743c7969407' class='xr-index-data-in' type='checkbox'/><label for='index-d18369b9-55c5-48b2-a52f-3743c7969407' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2013-01-01 00:00:00&#x27;, &#x27;2013-01-01 06:00:00&#x27;,
+               &#x27;2013-01-01 12:00:00&#x27;, &#x27;2013-01-01 18:00:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3ce6f715-0f70-42b2-aa04-d7f067cc2870' class='xr-index-data-in' type='checkbox'/><label for='index-3ce6f715-0f70-42b2-aa04-d7f067cc2870' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([              15.0, 15.606060606060606,  16.21212121212121,
+               16.81818181818182, 17.424242424242426,  18.03030303030303,
+              18.636363636363637, 19.242424242424242, 19.848484848484848,
+              20.454545454545453, 21.060606060606062, 21.666666666666668,
+              22.272727272727273,  22.87878787878788, 23.484848484848484,
+              24.090909090909093, 24.696969696969695, 25.303030303030305,
+               25.90909090909091, 26.515151515151516,  27.12121212121212,
+              27.727272727272727, 28.333333333333336, 28.939393939393938,
+              29.545454545454547, 30.151515151515152, 30.757575757575758,
+              31.363636363636363,  31.96969696969697,  32.57575757575758,
+               33.18181818181819,  33.78787878787879,  34.39393939393939,
+                            35.0,  35.60606060606061,  36.21212121212121,
+               36.81818181818182,  37.42424242424242,  38.03030303030303,
+               38.63636363636364,  39.24242424242424, 39.848484848484844,
+               40.45454545454545,  41.06060606060606,  41.66666666666667,
+               42.27272727272727, 42.878787878787875, 43.484848484848484,
+               44.09090909090909,   44.6969696969697, 45.303030303030305,
+               45.90909090909091, 46.515151515151516, 47.121212121212125,
+               47.72727272727273, 48.333333333333336,  48.93939393939394,
+               49.54545454545455, 50.151515151515156,  50.75757575757576,
+               51.36363636363637,  51.96969696969697,  52.57575757575758,
+               53.18181818181818,  53.78787878787879,   54.3939393939394,
+                            55.0,  55.60606060606061,  56.21212121212121,
+               56.81818181818182,  57.42424242424242,  58.03030303030303,
+               58.63636363636364,  59.24242424242424,  59.84848484848485,
+               60.45454545454545,  61.06060606060606,  61.66666666666667,
+               62.27272727272727,  62.87878787878788, 63.484848484848484,
+                64.0909090909091,  64.69696969696969,  65.30303030303031,
+                65.9090909090909,  66.51515151515152,  67.12121212121212,
+               67.72727272727272,  68.33333333333334,  68.93939393939394,
+               69.54545454545455,  70.15151515151516,  70.75757575757575,
+               71.36363636363637,  71.96969696969697,  72.57575757575758,
+               73.18181818181819,  73.78787878787878,   74.3939393939394,
+                            75.0],
+             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0fee0977-b3df-4ce5-a7eb-98978ace3d57' class='xr-section-summary-in' type='checkbox'  ><label for='section-0fee0977-b3df-4ce5-a7eb-98978ace3d57' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>actual_range :</span></dt><dd>[185.16 322.1 ]</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Let’s define a function that works with one vector of data along <code class="docutils literal notranslate"><span class="pre">lat</span></code> at a time.</p>
 <div class="cell docutils container">
@@ -1768,7 +1855,7 @@ looping over GroupBy/Dataset variables, and merging of coordinates.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">interp1d_np</span><span class="p">,</span>  <span class="c1"># first the function</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">air</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># now arguments in the order expected by &#39;interp1_np&#39;</span>
@@ -1776,45 +1863,42 @@ looping over GroupBy/Dataset variables, and merging of coordinates.
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">newlat</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1159,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1158</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1159</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1160</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1163</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1204,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1204</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1205</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:286,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="n">result_coords</span> <span class="o">=</span> <span class="n">build_output_coords</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">286</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="n">out</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span>         <span class="n">DataArray</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nn">    291         for variable, coords</span> in <span class="ni">zip</span><span class="nt">(result_var, result_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:315,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">315</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:761,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">new_size</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">760</span>     <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dim_sizes</span> <span class="ow">and</span> <span class="n">new_size</span> <span class="o">!=</span> <span class="n">dim_sizes</span><span class="p">[</span><span class="n">dim</span><span class="p">]:</span>
-<span class="ne">--&gt; </span><span class="mi">761</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">762</span>             <span class="s2">&quot;size of dimension </span><span class="si">{!r}</span><span class="s2"> on inputs was unexpectedly &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span>             <span class="s2">&quot;changed by applied function from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">. Only &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">764</span>             <span class="s2">&quot;dimensions specified in ``exclude_dims`` with &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span>             <span class="s2">&quot;xarray.apply_ufunc are allowed to change size.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>                 <span class="n">dim</span><span class="p">,</span> <span class="n">dim_sizes</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">new_size</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="n">var</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">771</span> <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:805,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">new_size</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">804</span>     <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dim_sizes</span> <span class="ow">and</span> <span class="n">new_size</span> <span class="o">!=</span> <span class="n">dim_sizes</span><span class="p">[</span><span class="n">dim</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">805</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">806</span>             <span class="s2">&quot;size of dimension </span><span class="si">{!r}</span><span class="s2"> on inputs was unexpectedly &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">807</span>             <span class="s2">&quot;changed by applied function from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">. Only &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span>             <span class="s2">&quot;dimensions specified in ``exclude_dims`` with &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="s2">&quot;xarray.apply_ufunc are allowed to change size.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span>                 <span class="n">dim</span><span class="p">,</span> <span class="n">dim_sizes</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">new_size</span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="n">var</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">815</span> <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: size of dimension &#39;lat&#39; on inputs was unexpectedly changed by applied function from 25 to 100. Only dimensions specified in ``exclude_dims`` with xarray.apply_ufunc are allowed to change size.
 </pre></div>
@@ -1848,7 +1932,7 @@ looping over GroupBy/Dataset variables, and merging of coordinates.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">interp1d_np</span><span class="p">,</span>  <span class="c1"># first the function</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">air</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># now arguments in the order expected by &#39;interp1_np&#39;</span>
@@ -1857,18 +1941,18 @@ looping over GroupBy/Dataset variables, and merging of coordinates.
 <span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">exclude_dims</span><span class="o">=</span><span class="nb">set</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,)),</span>  <span class="c1"># dimensions allowed to change size. Must be set!</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1075,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1071</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span>             <span class="sa">f</span><span class="s2">&quot;Expected exclude_dims to be a &#39;set&#39;. Received &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">exclude_dims</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; instead.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1073</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1074</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">exclude_dims</span> <span class="o">&lt;=</span> <span class="n">signature</span><span class="o">.</span><span class="n">all_core_dims</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1075</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1076</span>             <span class="sa">f</span><span class="s2">&quot;each dimension in `exclude_dims` must also be a &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1077</span>             <span class="sa">f</span><span class="s2">&quot;core dimension in the function signature. &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1078</span>             <span class="sa">f</span><span class="s2">&quot;Please make </span><span class="si">{</span><span class="p">(</span><span class="n">exclude_dims</span> <span class="o">-</span> <span class="n">signature</span><span class="o">.</span><span class="n">all_core_dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> a core dimension&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1079</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1081</span> <span class="c1"># handle dask_gufunc_kwargs</span>
-<span class="g g-Whitespace">   </span><span class="mi">1082</span> <span class="k">if</span> <span class="n">dask</span> <span class="o">==</span> <span class="s2">&quot;parallelized&quot;</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1120,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1116</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1117</span>             <span class="sa">f</span><span class="s2">&quot;Expected exclude_dims to be a &#39;set&#39;. Received &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">exclude_dims</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; instead.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1118</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1119</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">exclude_dims</span> <span class="o">&lt;=</span> <span class="n">signature</span><span class="o">.</span><span class="n">all_core_dims</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1120</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1121</span>             <span class="sa">f</span><span class="s2">&quot;each dimension in `exclude_dims` must also be a &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1122</span>             <span class="sa">f</span><span class="s2">&quot;core dimension in the function signature. &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>             <span class="sa">f</span><span class="s2">&quot;Please make </span><span class="si">{</span><span class="p">(</span><span class="n">exclude_dims</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">signature</span><span class="o">.</span><span class="n">all_core_dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> a core dimension&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1124</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span> <span class="c1"># handle dask_gufunc_kwargs</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span> <span class="k">if</span> <span class="n">dask</span> <span class="o">==</span> <span class="s2">&quot;parallelized&quot;</span><span class="p">:</span>
 
 <span class="ne">ValueError</span>: each dimension in `exclude_dims` must also be a core dimension in the function signature. Please make {&#39;lat&#39;} a core dimension
 </pre></div>
@@ -1920,7 +2004,7 @@ output_core_dims : List[tuple], optional
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">interp1d_np</span><span class="p">,</span>  <span class="c1"># first the function</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">air</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># now arguments in the order expected by &#39;interp1_np&#39;</span>
@@ -1930,42 +2014,39 @@ output_core_dims : List[tuple], optional
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">exclude_dims</span><span class="o">=</span><span class="nb">set</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,)),</span>  <span class="c1"># dimensions allowed to change size. Must be set!</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1159,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1158</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1159</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1160</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1163</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1204,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1204</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1205</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:286,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="n">result_coords</span> <span class="o">=</span> <span class="n">build_output_coords</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">286</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="n">out</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span>         <span class="n">DataArray</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nn">    291         for variable, coords</span> in <span class="ni">zip</span><span class="nt">(result_var, result_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:315,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">315</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:752,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">750</span> <span class="n">data</span> <span class="o">=</span> <span class="n">as_compatible_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">751</span> <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">752</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">753</span>         <span class="s2">&quot;applied function returned data with unexpected &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">754</span>         <span class="sa">f</span><span class="s2">&quot;number of dimensions. Received </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2"> dimension(s) but &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">755</span>         <span class="sa">f</span><span class="s2">&quot;expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> dimensions with names: </span><span class="si">{</span><span class="n">dims</span><span class="si">!r}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">756</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span> <span class="n">var</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">new_size</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:796,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span> <span class="n">data</span> <span class="o">=</span> <span class="n">as_compatible_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span> <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">796</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="s2">&quot;applied function returned data with unexpected &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="sa">f</span><span class="s2">&quot;number of dimensions. Received </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2"> dimension(s) but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>         <span class="sa">f</span><span class="s2">&quot;expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> dimensions with names: </span><span class="si">{</span><span class="n">dims</span><span class="si">!r}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="n">var</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">new_size</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
 <span class="ne">ValueError</span>: applied function returned data with unexpected number of dimensions. Received 1 dimension(s) but expected 0 dimensions with names: ()
 </pre></div>
@@ -2019,6 +2100,7 @@ output_core_dims : List[tuple], optional
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -2248,6 +2330,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -2269,14 +2356,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -2286,13 +2375,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -2330,7 +2422,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -2368,7 +2461,7 @@ array([296.29000854, 296.19545954, 296.10091053, 296.00636153,
 Coordinates:
     lon      float32 200.0
     time     datetime64[ns] 2013-01-01
-Dimensions without coordinates: lat</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span>lat</span>: 100</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-53a13eef-78f3-4f81-9db9-c0e33b39f465' class='xr-array-in' type='checkbox' checked><label for='section-53a13eef-78f3-4f81-9db9-c0e33b39f465' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.2 296.1 296.0 295.9 296.0 ... 243.7 243.1 242.5 241.8 241.2</span></div><div class='xr-array-data'><pre>array([296.29000854, 296.19545954, 296.10091053, 296.00636153,
+Dimensions without coordinates: lat</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span>lat</span>: 100</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-7b80055b-e6bf-4d52-95da-d73a218c0f05' class='xr-array-in' type='checkbox' checked><label for='section-7b80055b-e6bf-4d52-95da-d73a218c0f05' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.2 296.1 296.0 295.9 296.0 ... 243.7 243.1 242.5 241.8 241.2</span></div><div class='xr-array-data'><pre>array([296.29000854, 296.19545954, 296.10091053, 296.00636153,
        295.91181252, 296.04848133, 296.21818126, 296.38788119,
        296.55758112, 296.67273227, 296.76970048, 296.8666687 ,
        296.96363692, 296.75757483, 296.36969457, 295.9818143 ,
@@ -2392,7 +2485,7 @@ Dimensions without coordinates: lat</pre><div class='xr-wrap' style='display:non
        271.59090909, 269.65151515, 267.71212121, 265.        ,
        261.        , 257.        , 253.        , 249.62424168,
        248.12120842, 246.61817516, 245.1151419 , 243.72120019,
-       243.09089938, 242.46059857, 241.83029776, 241.19999695])</pre></div></div></li><li class='xr-section-item'><input id='section-4a368104-55d1-4aaf-aef8-5449f7195598' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4a368104-55d1-4aaf-aef8-5449f7195598' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0</div><input id='attrs-d95dfeaf-31cb-4e5d-ad83-2e475f999eb2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d95dfeaf-31cb-4e5d-ad83-2e475f999eb2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-efb23a4d-ff0e-45b8-810c-1a8d80fdddfb' class='xr-var-data-in' type='checkbox'><label for='data-efb23a4d-ff0e-45b8-810c-1a8d80fdddfb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(200., dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01</div><input id='attrs-60c399fc-2d8a-452d-a6ff-7789e361f6fe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-60c399fc-2d8a-452d-a6ff-7789e361f6fe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c3713c1-6746-4d7d-9ed0-7cc560a1358f' class='xr-var-data-in' type='checkbox'><label for='data-4c3713c1-6746-4d7d-9ed0-7cc560a1358f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(&#x27;2013-01-01T00:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6c91c7c0-bdc0-48ee-b6b4-f70cd6e0cd4a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6c91c7c0-bdc0-48ee-b6b4-f70cd6e0cd4a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+       243.09089938, 242.46059857, 241.83029776, 241.19999695])</pre></div></div></li><li class='xr-section-item'><input id='section-e47115b2-4a46-4699-8c0a-26fff2f52fd6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e47115b2-4a46-4699-8c0a-26fff2f52fd6' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0</div><input id='attrs-323488b6-e8a1-428b-a34d-534b4048fc22' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-323488b6-e8a1-428b-a34d-534b4048fc22' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b7ead36c-1422-4bd3-a5ff-673d87d0c81d' class='xr-var-data-in' type='checkbox'><label for='data-b7ead36c-1422-4bd3-a5ff-673d87d0c81d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(200., dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01</div><input id='attrs-2d66d9be-0ad2-40f9-91af-fb16897e4936' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2d66d9be-0ad2-40f9-91af-fb16897e4936' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2583169b-69e8-4a35-8b5b-85a9cda2a714' class='xr-var-data-in' type='checkbox'><label for='data-2583169b-69e8-4a35-8b5b-85a9cda2a714' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(&#x27;2013-01-01T00:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-023bc382-63be-4cce-b629-16bc192ca605' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-023bc382-63be-4cce-b629-16bc192ca605' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-0ff4a44e-c5ec-4b38-9fa1-d654ba14fc38' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0ff4a44e-c5ec-4b38-9fa1-d654ba14fc38' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Finally we get some output! Let’s check that this is right</p>
 <div class="cell docutils container">
@@ -2445,7 +2538,7 @@ Let’s try passing the whole dataset. We add a <code class="docutils literal no
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [9],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | x: </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | xi: </span><span class="si">{</span><span class="n">xi</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">interped</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
@@ -2460,52 +2553,49 @@ Let’s try passing the whole dataset. We add a <code class="docutils literal no
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">interped</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newlat</span>  <span class="c1"># need to add this manually</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">xr</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">expected</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">interped</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1159,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1158</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1159</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1160</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1163</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1204,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1204</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1205</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:286,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="n">result_coords</span> <span class="o">=</span> <span class="n">build_output_coords</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">286</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="n">out</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span>         <span class="n">DataArray</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nn">    291         for variable, coords</span> in <span class="ni">zip</span><span class="nt">(result_var, result_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:315,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">315</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:727,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">_vectorize</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="n">func</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="n">output_dtypes</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">result_data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">result_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_data</span><span class="p">,)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:771,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">_vectorize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>             <span class="n">func</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="n">output_dtypes</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">771</span> <span class="n">result_data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>     <span class="n">result_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_data</span><span class="p">,)</span>
 
-<span class="nn">Input In [9],</span> in <span class="ni">interp1d_np</span><span class="nt">(data, x, xi)</span>
+<span class="nn">Cell In[9], line 3,</span> in <span class="ni">interp1d_np</span><span class="nt">(data, x, xi)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">interp1d_np</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">xi</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | x: </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | xi: </span><span class="si">{</span><span class="n">xi</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
 <span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">interp</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:1570,</span> in <span class="ni">interp</span><span class="nt">(x, xp, fp, left, right, period)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1567</span>     <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">xp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">period</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">xp</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">period</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span>     <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">fp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]))</span>
-<span class="ne">-&gt; </span><span class="mi">1570</span> <span class="k">return</span> <span class="n">interp_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:1594,</span> in <span class="ni">interp</span><span class="nt">(x, xp, fp, left, right, period)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1591</span>     <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">xp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">period</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">xp</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">period</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1592</span>     <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">fp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]))</span>
+<span class="ne">-&gt; </span><span class="mi">1594</span> <span class="k">return</span> <span class="n">interp_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: object too deep for desired array
 </pre></div>
@@ -2526,7 +2616,7 @@ Let’s try passing the whole dataset. We add a <code class="docutils literal no
     Using this option requires NumPy version 1.12 or newer.
 </pre></div>
 </div>
-<p>Also see the documentation for <code class="docutils literal notranslate"><span class="pre">np.vectorize</span></code>: <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.vectorize.html">https://docs.scipy.org/doc/numpy/reference/generated/numpy.vectorize.html</a>. Most importantly</p>
+<p>Also see the documentation for <code class="docutils literal notranslate"><span class="pre">np.vectorize</span></code>: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vectorize.html">https://numpy.org/doc/stable/reference/generated/numpy.vectorize.html</a>. Most importantly</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The vectorize function is provided primarily for convenience, not for performance. 
 The implementation is essentially a for loop.
 </pre></div>
@@ -2556,7 +2646,7 @@ The implementation is essentially a for loop.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | x: </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> | xi: </span><span class="si">{</span><span class="n">xi</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">interped</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
@@ -2572,83 +2662,80 @@ The implementation is essentially a for loop.
 <span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">interped</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newlat</span>  <span class="c1"># need to add this manually</span>
 <span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">xr</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">interped</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1159,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1158</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1159</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1160</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1163</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:1204,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1204</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1205</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:286,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="n">result_coords</span> <span class="o">=</span> <span class="n">build_output_coords</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">286</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="n">out</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span>         <span class="n">DataArray</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nn">    291         for variable, coords</span> in <span class="ni">zip</span><span class="nt">(result_var, result_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:315,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">315</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:727,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">_vectorize</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="n">func</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="n">output_dtypes</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">result_data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">result_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_data</span><span class="p">,)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/xarray/core/computation.py:771,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">_vectorize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>             <span class="n">func</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="n">output_dtypes</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">771</span> <span class="n">result_data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>     <span class="n">result_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_data</span><span class="p">,)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2304,</span> in <span class="ni">vectorize.__call__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2301</span>     <span class="n">vargs</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="n">_i</span><span class="p">]</span> <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2302</span>     <span class="n">vargs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="n">_n</span><span class="p">]</span> <span class="k">for</span> <span class="n">_n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
-<span class="ne">-&gt; </span><span class="mi">2304</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">vargs</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2328,</span> in <span class="ni">vectorize.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2325</span>     <span class="n">vargs</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="n">_i</span><span class="p">]</span> <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2326</span>     <span class="n">vargs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="n">_n</span><span class="p">]</span> <span class="k">for</span> <span class="n">_n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+<span class="ne">-&gt; </span><span class="mi">2328</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">vargs</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2378,</span> in <span class="ni">vectorize._vectorize_call</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2376</span> <span class="sd">&quot;&quot;&quot;Vectorized call to `func` over positional `args`.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2377</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signature</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2378</span>     <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call_with_signature</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2379</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2380</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2402,</span> in <span class="ni">vectorize._vectorize_call</span><span class="nt">(self, func, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2400</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Vectorized call to `func` over positional `args`.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2401</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signature</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2402</span>     <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call_with_signature</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2403</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2404</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2406,</span> in <span class="ni">vectorize._vectorize_call_with_signature</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2401</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;wrong number of positional arguments: &#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2402</span>                     <span class="s1">&#39;expected </span><span class="si">%r</span><span class="s1">, got </span><span class="si">%r</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2403</span>                     <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_core_dims</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">2404</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2406</span> <span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span> <span class="o">=</span> <span class="n">_parse_input_dimensions</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2407</span>     <span class="n">args</span><span class="p">,</span> <span class="n">input_core_dims</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2408</span> <span class="n">input_shapes</span> <span class="o">=</span> <span class="n">_calculate_shapes</span><span class="p">(</span><span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2409</span>                                  <span class="n">input_core_dims</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2410</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2411</span>         <span class="k">for</span> <span class="n">arg</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">)]</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2430,</span> in <span class="ni">vectorize._vectorize_call_with_signature</span><span class="nt">(self, func, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2425</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;wrong number of positional arguments: &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2426</span>                     <span class="s1">&#39;expected </span><span class="si">%r</span><span class="s1">, got </span><span class="si">%r</span><span class="s1">&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2427</span>                     <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_core_dims</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2428</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2430</span> <span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span> <span class="o">=</span> <span class="n">_parse_input_dimensions</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2431</span>     <span class="n">args</span><span class="p">,</span> <span class="n">input_core_dims</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span> <span class="n">input_shapes</span> <span class="o">=</span> <span class="n">_calculate_shapes</span><span class="p">(</span><span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2433</span>                                  <span class="n">input_core_dims</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2434</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2435</span>         <span class="k">for</span> <span class="n">arg</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">)]</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2066,</span> in <span class="ni">_parse_input_dimensions</span><span class="nt">(args, input_core_dims)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2064</span>     <span class="n">dummy_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">arg</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="n">ndim</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">2065</span>     <span class="n">broadcast_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_array</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2066</span> <span class="n">broadcast_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">_broadcast_shape</span><span class="p">(</span><span class="o">*</span><span class="n">broadcast_args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2067</span> <span class="k">return</span> <span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/function_base.py:2090,</span> in <span class="ni">_parse_input_dimensions</span><span class="nt">(args, input_core_dims)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2088</span>     <span class="n">dummy_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">arg</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="n">ndim</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2089</span>     <span class="n">broadcast_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dummy_array</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2090</span> <span class="n">broadcast_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">_broadcast_shape</span><span class="p">(</span><span class="o">*</span><span class="n">broadcast_args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2091</span> <span class="k">return</span> <span class="n">broadcast_shape</span><span class="p">,</span> <span class="n">dim_sizes</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/stride_tricks.py:421,</span> in <span class="ni">_broadcast_shape</span><span class="nt">(*args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="sd">&quot;&quot;&quot;Returns the shape of the arrays that would result from broadcasting the</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="sd"> supplied arrays against each other.</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="c1"># use the old-iterator because np.nditer does not handle size 0 arrays</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span> <span class="c1"># consistently</span>
-<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="mi">32</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">422</span> <span class="c1"># unfortunately, it cannot handle 32 or more arguments directly</span>
-<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="mi">31</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="c1"># ironically, np.broadcast does not properly handle np.broadcast</span>
-<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="c1"># objects (it treats them as scalars)</span>
-<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="c1"># use broadcasting to avoid allocating the full array</span>
+<span class="nn">File /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numpy/lib/stride_tricks.py:422,</span> in <span class="ni">_broadcast_shape</span><span class="nt">(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns the shape of the arrays that would result from broadcasting the</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="sd"> supplied arrays against each other.</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span> <span class="c1"># use the old-iterator because np.nditer does not handle size 0 arrays</span>
+<span class="g g-Whitespace">    </span><span class="mi">421</span> <span class="c1"># consistently</span>
+<span class="ne">--&gt; </span><span class="mi">422</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="mi">32</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="c1"># unfortunately, it cannot handle 32 or more arguments directly</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="mi">31</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="c1"># ironically, np.broadcast does not properly handle np.broadcast</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="c1"># objects (it treats them as scalars)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="c1"># use broadcasting to avoid allocating the full array</span>
 
 <span class="ne">ValueError</span>: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (4, 3) and arg 2 with shape (100,).
 </pre></div>
@@ -2729,6 +2816,7 @@ data: (25,) | x: (25,) | xi: (100,)
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -2958,6 +3046,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -2979,14 +3072,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -2996,13 +3091,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -3040,7 +3138,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -3080,7 +3179,7 @@ array([[[296.29000854, 296.19545954, 296.10091053, ..., 242.46059857,
 Coordinates:
   * lon      (lon) float32 200.0 202.5 205.0
   * time     (time) datetime64[ns] 2013-01-01 ... 2013-01-01T18:00:00
-  * lat      (lat) float64 15.0 15.61 16.21 16.82 ... 73.18 73.79 74.39 75.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lon</span>: 3</li><li><span class='xr-has-index'>lat</span>: 100</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-7bf702bd-5d66-4790-a103-ef7f8df7e27f' class='xr-array-in' type='checkbox' checked><label for='section-7bf702bd-5d66-4790-a103-ef7f8df7e27f' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.2 296.1 296.0 295.9 296.0 ... 244.1 243.5 243.0 242.4 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29000854, 296.19545954, 296.10091053, ..., 242.46059857,
+  * lat      (lat) float64 15.0 15.61 16.21 16.82 ... 73.18 73.79 74.39 75.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4</li><li><span class='xr-has-index'>lon</span>: 3</li><li><span class='xr-has-index'>lat</span>: 100</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-43ba3bf7-7a38-4b02-8758-0e694bec7886' class='xr-array-in' type='checkbox' checked><label for='section-43ba3bf7-7a38-4b02-8758-0e694bec7886' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>296.3 296.2 296.1 296.0 295.9 296.0 ... 244.1 243.5 243.0 242.4 241.8</span></div><div class='xr-array-data'><pre>array([[[296.29000854, 296.19545954, 296.10091053, ..., 242.46059857,
          241.83029776, 241.19999695],
         [296.79000854, 296.64697173, 296.50393492, ..., 243.46969697,
          242.98484848, 242.5       ],
@@ -3106,9 +3205,9 @@ Coordinates:
         [297.69998169, 297.65150128, 297.60302087, ..., 243.49695749,
          242.64847264, 241.79998779],
         [297.5       , 297.40303178, 297.30606357, ..., 242.9636286 ,
-         242.38180819, 241.79998779]]])</pre></div></div></li><li class='xr-section-item'><input id='section-fb364f89-e643-4186-88d3-6ccb62355529' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fb364f89-e643-4186-88d3-6ccb62355529' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-66f1280a-31a7-4833-b09e-a6c612d7c168' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-66f1280a-31a7-4833-b09e-a6c612d7c168' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-590a989c-e4b2-41ee-ac98-e0e802dad114' class='xr-var-data-in' type='checkbox'><label for='data-590a989c-e4b2-41ee-ac98-e0e802dad114' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-5f0fa573-8e10-4f8a-9b71-bbc2226a6756' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5f0fa573-8e10-4f8a-9b71-bbc2226a6756' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6e514e75-7974-45c2-bc20-7726eb450207' class='xr-var-data-in' type='checkbox'><label for='data-6e514e75-7974-45c2-bc20-7726eb450207' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
+         242.38180819, 241.79998779]]])</pre></div></div></li><li class='xr-section-item'><input id='section-f4c701c2-16cb-490d-a759-c3447b123a41' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f4c701c2-16cb-490d-a759-c3447b123a41' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0</div><input id='attrs-f239a0af-2c54-4e06-8022-db683623a12a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f239a0af-2c54-4e06-8022-db683623a12a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78dc2802-322b-4454-a9ef-92516bcd2961' class='xr-var-data-in' type='checkbox'><label for='data-78dc2802-322b-4454-a9ef-92516bcd2961' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2013-01-01T18:00:00</div><input id='attrs-2ac33414-4a47-41f7-b190-d81f5e0897ed' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2ac33414-4a47-41f7-b190-d81f5e0897ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-266ba43d-e300-49b4-818b-12f5efb3614f' class='xr-var-data-in' type='checkbox'><label for='data-266ba43d-e300-49b4-818b-12f5efb3614f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
        &#x27;2013-01-01T12:00:00.000000000&#x27;, &#x27;2013-01-01T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>15.0 15.61 16.21 ... 74.39 75.0</div><input id='attrs-72de7ef0-c844-4d68-af68-aa8a37c41eec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-72de7ef0-c844-4d68-af68-aa8a37c41eec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ab4f71b0-5674-49e9-ad85-051d1531cd40' class='xr-var-data-in' type='checkbox'><label for='data-ab4f71b0-5674-49e9-ad85-051d1531cd40' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([15.      , 15.606061, 16.212121, 16.818182, 17.424242, 18.030303,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>15.0 15.61 16.21 ... 74.39 75.0</div><input id='attrs-d07e7704-f803-4e08-a984-d8826b048197' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d07e7704-f803-4e08-a984-d8826b048197' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-466dda9d-b67e-4b4d-bf1c-cca473c068fc' class='xr-var-data-in' type='checkbox'><label for='data-466dda9d-b67e-4b4d-bf1c-cca473c068fc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([15.      , 15.606061, 16.212121, 16.818182, 17.424242, 18.030303,
        18.636364, 19.242424, 19.848485, 20.454545, 21.060606, 21.666667,
        22.272727, 22.878788, 23.484848, 24.090909, 24.69697 , 25.30303 ,
        25.909091, 26.515152, 27.121212, 27.727273, 28.333333, 28.939394,
@@ -3124,7 +3223,43 @@ Coordinates:
        62.272727, 62.878788, 63.484848, 64.090909, 64.69697 , 65.30303 ,
        65.909091, 66.515152, 67.121212, 67.727273, 68.333333, 68.939394,
        69.545455, 70.151515, 70.757576, 71.363636, 71.969697, 72.575758,
-       73.181818, 73.787879, 74.393939, 75.      ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0bc92fb0-a40d-42f4-a636-d4378323f5c8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0bc92fb0-a40d-42f4-a636-d4378323f5c8' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+       73.181818, 73.787879, 74.393939, 75.      ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c96b2337-8a0b-45d8-b586-6889088bad37' class='xr-section-summary-in' type='checkbox'  ><label for='section-c96b2337-8a0b-45d8-b586-6889088bad37' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ff4090ae-5cec-403e-b395-215ad8a7a88c' class='xr-index-data-in' type='checkbox'/><label for='index-ff4090ae-5cec-403e-b395-215ad8a7a88c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([200.0, 202.5, 205.0], dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-22b349cb-abb4-4a3c-b85c-653f0ceaa7d5' class='xr-index-data-in' type='checkbox'/><label for='index-22b349cb-abb4-4a3c-b85c-653f0ceaa7d5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2013-01-01 00:00:00&#x27;, &#x27;2013-01-01 06:00:00&#x27;,
+               &#x27;2013-01-01 12:00:00&#x27;, &#x27;2013-01-01 18:00:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-288b17df-1345-42aa-b2e3-dcec241229d5' class='xr-index-data-in' type='checkbox'/><label for='index-288b17df-1345-42aa-b2e3-dcec241229d5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([              15.0, 15.606060606060606,  16.21212121212121,
+               16.81818181818182, 17.424242424242426,  18.03030303030303,
+              18.636363636363637, 19.242424242424242, 19.848484848484848,
+              20.454545454545453, 21.060606060606062, 21.666666666666668,
+              22.272727272727273,  22.87878787878788, 23.484848484848484,
+              24.090909090909093, 24.696969696969695, 25.303030303030305,
+               25.90909090909091, 26.515151515151516,  27.12121212121212,
+              27.727272727272727, 28.333333333333336, 28.939393939393938,
+              29.545454545454547, 30.151515151515152, 30.757575757575758,
+              31.363636363636363,  31.96969696969697,  32.57575757575758,
+               33.18181818181819,  33.78787878787879,  34.39393939393939,
+                            35.0,  35.60606060606061,  36.21212121212121,
+               36.81818181818182,  37.42424242424242,  38.03030303030303,
+               38.63636363636364,  39.24242424242424, 39.848484848484844,
+               40.45454545454545,  41.06060606060606,  41.66666666666667,
+               42.27272727272727, 42.878787878787875, 43.484848484848484,
+               44.09090909090909,   44.6969696969697, 45.303030303030305,
+               45.90909090909091, 46.515151515151516, 47.121212121212125,
+               47.72727272727273, 48.333333333333336,  48.93939393939394,
+               49.54545454545455, 50.151515151515156,  50.75757575757576,
+               51.36363636363637,  51.96969696969697,  52.57575757575758,
+               53.18181818181818,  53.78787878787879,   54.3939393939394,
+                            55.0,  55.60606060606061,  56.21212121212121,
+               56.81818181818182,  57.42424242424242,  58.03030303030303,
+               58.63636363636364,  59.24242424242424,  59.84848484848485,
+               60.45454545454545,  61.06060606060606,  61.66666666666667,
+               62.27272727272727,  62.87878787878788, 63.484848484848484,
+                64.0909090909091,  64.69696969696969,  65.30303030303031,
+                65.9090909090909,  66.51515151515152,  67.12121212121212,
+               67.72727272727272,  68.33333333333334,  68.93939393939394,
+               69.54545454545455,  70.15151515151516,  70.75757575757575,
+               71.36363636363637,  71.96969696969697,  72.57575757575758,
+               73.18181818181819,  73.78787878787878,   74.3939393939394,
+                            75.0],
+             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fe4c905e-df34-4789-aaee-1780fcdf18a6' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fe4c905e-df34-4789-aaee-1780fcdf18a6' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Notice that the printed input shapes are all 1D and correspond to one vector along the <code class="docutils literal notranslate"><span class="pre">lat</span></code> dimension.</p>
 <p>The result is now an xarray object with coordinate values copied over from <code class="docutils literal notranslate"><span class="pre">data</span></code>. This is why <code class="docutils literal notranslate"><span class="pre">apply_ufunc</span></code> is so convenient; it takes care of a lot of boilerplate necessary to apply functions that consume and produce numpy arrays to xarray objects.</p>
@@ -3216,37 +3351,37 @@ data: (25,) | x: (25,) | xi: (100,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2841/409442179.py:4: NumbaWarning: <span class=" -Color -Color-Bold"></span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3396/409442179.py:4: NumbaWarning: 
 <span class=" -Color -Color-Bold">Compilation is falling back to object mode WITHOUT looplifting enabled because Function &quot;interp1d_np_gufunc&quot; failed type inference due to: No implementation of function Function(&lt;class &#39;str&#39;&gt;) found for signature:</span>
 <span class=" -Color -Color-Bold"> </span>
 <span class=" -Color -Color-Bold"> &gt;&gt;&gt; str(UniTuple(int64 x 1))</span>
 <span class=" -Color -Color-Bold"> </span>
-<span class=" -Color -Color-Bold">There are 6 candidate implementations:</span>
-<span class=" -Color -Color-Bold">    - Of which 6 did not match due to:</span>
+<span class=" -Color -Color-Bold">There are 10 candidate implementations:</span>
+<span class=" -Color -Color-Bold">    - Of which 10 did not match due to:</span>
 <span class=" -Color -Color-Bold">    Overload of function &#39;str&#39;: File: &lt;numerous&gt;: Line N/A.</span>
 <span class=" -Color -Color-Bold">      With argument(s): &#39;(UniTuple(int64 x 1))&#39;:</span>
 <span class=" -Color -Color-Bold">     No match.</span>
 
 <span class=" -Color -Color-Bold">During: resolving callee type: Function(&lt;class &#39;str&#39;&gt;)</span>
-<span class=" -Color -Color-Bold">During: typing of call at /tmp/ipykernel_2841/409442179.py (8)</span>
+<span class=" -Color -Color-Bold">During: typing of call at /tmp/ipykernel_3396/409442179.py (8)</span>
 
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_2841/409442179.py&quot;, line 8:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_3396/409442179.py&quot;, line 8:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
   @guvectorize(&quot;(float64[:], float64[:], float64[:], float64[:])&quot;, &quot;(n), (n), (m) -&gt; (m)&quot;)
 /usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numba/core/object_mode_passes.py:151: NumbaWarning: <span class=" -Color -Color-Bold">Function &quot;interp1d_np_gufunc&quot; was compiled in object mode without forceobj=True.</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_2841/409442179.py&quot;, line 4:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_3396/409442179.py&quot;, line 4:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
   warnings.warn(errors.NumbaWarning(warn_msg,
-/usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numba/core/object_mode_passes.py:161: NumbaDeprecationWarning: <span class=" -Color -Color-Bold"></span>
+/usr/share/miniconda3/envs/xarray-tutorial/lib/python3.10/site-packages/numba/core/object_mode_passes.py:161: NumbaDeprecationWarning: 
 <span class=" -Color -Color-Bold">Fall-back from the nopython compilation path to the object mode compilation path has been detected, this is deprecated behaviour.</span>
 
 <span class=" -Color -Color-Bold">For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_2841/409442179.py&quot;, line 4:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../../tmp/ipykernel_3396/409442179.py&quot;, line 4:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
   warnings.warn(errors.NumbaDeprecationWarning(msg,
@@ -3275,9 +3410,9 @@ data: (25,) | x: (25,) | xi: (100,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data: (25,) | x:(25,) | xi: (100,)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data: (25,) | x:(25,) | xi: (100,)data: (25,) | x:(25,) | xi: (100,)
 data: (25,) | x:(25,) | xi: (100,)
-data: (25,) | x:(25,) | xi: (100,)
+
 data: (25,) | x:(25,) | xi: (100,)
 data: (25,) | x:(25,) | xi: (100,)
 data: (25,) | x:(25,) | xi: (100,)
@@ -3307,7 +3442,6 @@ data: (25,) | x:(25,) | xi: (100,)
 
 
 <span class="k">def</span> <span class="nf">xr_interp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">newdim</span><span class="p">):</span>
-
     <span class="n">interped</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
         <span class="n">interp1d_np_gufunc</span><span class="p">,</span>  <span class="c1"># first the function</span>
         <span class="n">data</span><span class="p">,</span>  <span class="c1"># now arguments in the order expected by &#39;interp1_np&#39;</span>
